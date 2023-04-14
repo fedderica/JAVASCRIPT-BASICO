@@ -69,3 +69,74 @@ function MyComponent(props) {
         ))}
   
 
+
+
+
+  // Buena práctica
+function MyComponent(props) {
+  const [count, setCount] = useState(0);
+
+  const handleClick = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={handleClick}>Click me</button>
+    </div>
+  );
+}
+
+// Mala práctica
+function MyComponent(props) {
+  return (
+    <div>
+      <h1>Count: {props.count}</h1>
+      <button onClick={() => props.setCount(props.count + 1)}>Click me</button>
+    </div>
+  );
+}
+
+
+
+
+
+// Buena práctica
+function MyList(props) {
+  return (
+    <ul>
+      {props.items.map((item) => (
+        <li key={item.id}>{item.name}</li>
+      ))}
+    </ul>
+  );
+}
+
+// Mala práctica
+function MyList(props) {
+  return (
+    <ul>
+      {props.items.map((item, index) => (
+        <li>{item.name}</li>
+      ))}
+    </ul>
+  );
+}
+
+
+
+
+
+
+// Buena práctica: Usar la extensión de archivo .jsx
+import MyComponent from './MyComponent.jsx';
+
+// Mala práctica: Usar la extensión de archivo .js
+import MyComponent from './MyComponent.js';
+
+
+
+
+
+
