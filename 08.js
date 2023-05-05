@@ -15,3 +15,7 @@ const person = {
     console.log(this.name + ' likes ' + hobby);
   }, person);
   
+  /*  FOR   */
+
+  for i in range(5):
+    print(i)
